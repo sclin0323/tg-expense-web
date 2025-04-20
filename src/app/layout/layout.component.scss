@@ -1,0 +1,144 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.topbar {
+  height: 64px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  align-items: center;
+  padding-left: 260px;
+  padding-right: 24px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.layout-body {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 240px;
+  background-color: #ffffff;
+  border-right: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: width 0.3s ease;
+
+  &.collapsed {
+    width: 70px;
+
+    .user-info {
+      display: none;
+    }
+  }
+
+  .sidebar-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .user-info {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #3f51b5;
+    color: #fff;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .user-details {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .user-name {
+    font-weight: bold;
+    font-size: 1rem;
+  }
+
+  .user-role {
+    font-size: 0.8rem;
+    color: #888;
+  }
+
+  .menu {
+    flex-grow: 1;  /* ⭐ 這行很重要，讓menu自動往下延伸！ */
+    padding-top: 1rem;
+    overflow-y: auto;
+
+    ul {
+      list-style: none;
+      padding: 0;
+
+      li {
+        a {
+          display: flex;
+          align-items: center;
+          padding: 0.75rem 1rem;
+          color: #333;
+          text-decoration: none;
+          cursor: pointer;
+          font-size: 1rem;
+          transition: background-color 0.3s;
+
+          i {
+            margin-right: 1rem;
+          }
+
+          &:hover {
+            background-color: #f0f0f0;
+          }
+        }
+
+        ul {
+          padding-left: 2rem;
+
+          li {
+            a {
+              font-size: 0.9rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .toggle-button {
+    padding: 1rem;
+    text-align: center;
+    cursor: pointer;
+
+    i {
+      font-size: 1.5rem;
+      color: #333;
+    }
+  }
+}
+
+.main-content {
+  flex-grow: 1;
+  background-color: #f1f3f6;
+  padding: 2rem;
+  overflow-y: auto;
+}

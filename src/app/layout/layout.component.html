@@ -1,0 +1,43 @@
+<div class="layout">
+  <header class="topbar">
+    <div class="topbar-title">TG Expense Management</div>
+  </header>
+
+  <div class="layout-body">
+    <aside class="sidebar" [class.collapsed]="collapsed">
+      <div class="sidebar-content">
+        <div class="user-info" *ngIf="!collapsed">
+          <div class="avatar">MB</div>
+          <div class="user-details">
+            <div class="user-name">User Name</div>
+            <div class="user-role">管理員</div>
+          </div>
+        </div>
+
+        <nav class="menu">
+          <ul>
+            <li>
+              <a (click)="toggleSubmenu('permission')">
+                <i class="pi pi-lock"></i>
+                <span *ngIf="!collapsed">權限管理</span>
+                <i class="pi" [ngClass]="{'pi-angle-down': openMenu === 'permission', 'pi-angle-right': openMenu !== 'permission'}" *ngIf="!collapsed"></i>
+              </a>
+              <ul *ngIf="openMenu === 'permission' && !collapsed">
+                <li><a routerLink="/user-management">使用者管理</a></li>
+                <li><a routerLink="/role-management">角色管理</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="toggle-button" (click)="collapsed = !collapsed">
+          <i class="pi pi-bars"></i>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>
